@@ -41,7 +41,7 @@ jobs:
             
       - name: Start up MLFlow
         run: |
-          docker run -d -p 5555:5000 mlflow-server ghcr.io/mlflow/mlflow:latest \
+          docker run -d --name mlflow-server -p 5555:5000 ghcr.io/mlflow/mlflow:latest \
           mlflow server \
           --host 0.0.0.0 \
           --backend-store-uri sqlite:///mlflow.db \
